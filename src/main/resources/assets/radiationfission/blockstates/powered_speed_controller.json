@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "radiationfission:block/powered_speed_controller"
+    }
+  }
+}

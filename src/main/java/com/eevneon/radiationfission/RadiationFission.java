@@ -1,9 +1,8 @@
 package com.eevneon.radiationfission;
 
 import com.eevneon.radiationfission.block.Blocks;
+import com.eevneon.radiationfission.item.CreativeModeTabs;
 import com.eevneon.radiationfission.item.Items;
-import com.simibubi.create.Create;
-import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -40,6 +39,8 @@ public class RadiationFission {
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
+        CreativeModeTabs.register(modEventBus);
+
         Blocks.register(modEventBus);
         Items.register(modEventBus);
 
@@ -56,12 +57,12 @@ public class RadiationFission {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+        if(event.getTabKey() == net.minecraft.world.item.CreativeModeTabs.INGREDIENTS) {
             event.accept(Items.URANIUM_INGOT);
             event.accept(Items.STEEL_INGOT);
         }
 
-        if(event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
+        if(event.getTabKey() == net.minecraft.world.item.CreativeModeTabs.REDSTONE_BLOCKS) {
             event.accept(Blocks.POWERED_SPEED_CONTROLLER);
         }
     }
