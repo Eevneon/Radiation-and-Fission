@@ -9,8 +9,9 @@ Create Radiation and Fission has been in a constant on-off cycle of concepting a
 ## A short list of planned features:
 - A fun uranium enrichment process that scales with effort,
 - At least one semi-realistic fission reactor based on enriched uranium,
+- Redstone components to fit the difficult controlling of a fission reactor
 - Huge amounts of su,
-- And much more, soon to be announced!
+- And much, much more, soon to be announced!
 
 ## Where do I ask questions about this mod?
 Of course, reading this, you might get overly excited to play, and wonder where the amazing community of this mod lies. The answer is [our Discord](https://discord.gg/CbrAJNTGer). Please do read the rules before chatting, and represent the respectful human you are with as much effort as possible!
