@@ -2,5 +2,10 @@
   "item.radiationfission.uranium_ingot": "Uranium Ingot",
   "item.radiationfission.steel_ingot": "Steel Ingot",
 
-  "block.radiationfission.powered_speed_controller": "Powered Speed Controller"
+  "block.radiationfission.powered_speed_controller": "Powered Speed Controller",
+  "block.radiationfission.steel_block": "Steel Block",
+  "block.radiationfission.steel_casing": "Steel Casing",
+
+  "creativetab.radiationfission.radiation_n_fission": "Radiation & Fission"
+
 }

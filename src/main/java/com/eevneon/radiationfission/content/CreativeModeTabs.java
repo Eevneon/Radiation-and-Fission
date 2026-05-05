@@ -1,4 +1,4 @@
-package com.eevneon.radiationfission.item;
+package com.eevneon.radiationfission.content;
 
 import com.eevneon.radiationfission.RadiationFission;
 import net.minecraft.core.registries.Registries;
@@ -18,10 +18,13 @@ public class CreativeModeTabs {
     public static final Supplier<CreativeModeTab> RADIATION_N_FISSION = CREATIVE_MODE_TAB.register("radiation_n_fission",
             () -> CreativeModeTab.builder()
                 .icon(() -> new ItemStack(Items.URANIUM_INGOT.get()))
-                .title(Component.translatable("creativetab.radiationfission.uranium_ingot"))
+                .title(Component.translatable("creativetab.radiationfission.radiation_n_fission "))
                 .displayItems((itemDisplayParameters, output) -> {
                     output.accept(Items.URANIUM_INGOT);
                     output.accept(Items.STEEL_INGOT);
+                    output.accept(Blocks.POWERED_SPEED_CONTROLLER);
+                    output.accept(Blocks.STEEL_CASING);
+                    output.accept(Blocks.STEEL_BLOCK);
                 })
                 .build());
 
