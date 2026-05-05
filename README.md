@@ -1,3 +1,4 @@
+<img width="1280" height="480" alt="Uraniyum-export" src="https://github.com/user-attachments/assets/e86596db-b58a-4828-a6f4-7ca00db89828" />
 
 # Create: Radiation & Fission
 
