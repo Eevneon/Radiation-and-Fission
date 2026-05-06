@@ -1,8 +1,6 @@
 package com.eevneon.radiationfission;
 
-import com.eevneon.radiationfission.content.Blocks;
-import com.eevneon.radiationfission.content.CreativeModeTabs;
-import com.eevneon.radiationfission.content.Items;
+import com.eevneon.radiationfission.content.*;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.foundation.item.ItemDescription;
 import com.simibubi.create.foundation.item.KineticStats;
@@ -48,10 +46,11 @@ public class RadiationFission {
 
         NeoForge.EVENT_BUS.register(this);
 
-        CreativeModeTabs.register(modEventBus);
+        RNFCreativeModeTabs.register(modEventBus);
 
-        Blocks.register(modEventBus);
-        Items.register(modEventBus);
+        RNFBlocks.register(modEventBus);
+        RNFItems.register(modEventBus);
+        RNFBlockEntityTypes.register();
 
         modEventBus.addListener(this::addCreative);
 
@@ -65,14 +64,14 @@ public class RadiationFission {
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == net.minecraft.world.item.CreativeModeTabs.INGREDIENTS) {
-            event.accept(Items.URANIUM_INGOT);
-            event.accept(Items.STEEL_INGOT);
+            event.accept(RNFItems.URANIUM_INGOT);
+            event.accept(RNFItems.STEEL_INGOT);
         }
 
         if(event.getTabKey() == net.minecraft.world.item.CreativeModeTabs.REDSTONE_BLOCKS) {
-            event.accept(Blocks.POWERED_SPEED_CONTROLLER);
-            event.accept(Blocks.STEEL_CASING);
-            event.accept(Blocks.STEEL_BLOCK);
+            event.accept(RNFBlocks.POWERED_SPEED_CONTROLLER);
+            event.accept(RNFBlocks.STEEL_CASING);
+            event.accept(RNFBlocks.STEEL_BLOCK);
         }
     }
 

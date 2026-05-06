@@ -1,7 +1,6 @@
 package com.eevneon.radiationfission.content.contraptions.centrifuge;
 
-import com.eevneon.radiationfission.content.RadiationFissionBlockEntityTypes;
-import com.simibubi.create.AllBlockEntityTypes;
+import com.eevneon.radiationfission.content.RNFBlockEntityTypes;
 import com.simibubi.create.content.contraptions.bearing.BearingBlock;
 import com.simibubi.create.foundation.block.IBE;
 import net.minecraft.core.BlockPos;
@@ -48,6 +47,6 @@ public class CentrifugeBearingBlock extends BearingBlock implements IBE<Centrifu
 
     @Override
     public BlockEntityType<? extends CentrifugeBearingBlockEntity> getBlockEntityType() {
-        return RadiationFissionBlockEntityTypes.CENTRIFUGE_BEARING.get();
+        return RNFBlockEntityTypes.CENTRIFUGE_BEARING.get();
     }
 }

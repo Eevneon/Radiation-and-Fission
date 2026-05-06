@@ -2,7 +2,7 @@ package com.eevneon.radiationfission.content;
 
 import com.eevneon.radiationfission.RadiationFission;
 import com.eevneon.radiationfission.content.contraptions.centrifuge.CentrifugeBearingBlock;
-import com.eevneon.radiationfission.foundation.RadiationFissionSpriteShifts;
+import com.eevneon.radiationfission.foundation.CRFSpriteShifts;
 import com.simibubi.create.content.decoration.encasing.CasingBlock;
 import com.simibubi.create.foundation.data.*;
 import com.simibubi.create.foundation.data.recipe.CommonMetal;
@@ -21,7 +21,7 @@ import static com.simibubi.create.foundation.data.TagGen.axeOrPickaxe;
 
 import java.util.function.Supplier;
 
-public class Blocks {
+public class RNFBlocks {
 
     private static final CreateRegistrate REGISTRATE = RadiationFission.REGISTRATE;
 
@@ -44,7 +44,7 @@ public class Blocks {
 
     public static final BlockEntry<CasingBlock> STEEL_CASING = REGISTRATE.block("steel_casing", CasingBlock::new)
             .properties(p -> p.mapColor(MapColor.WARPED_NYLIUM))
-            .transform(BuilderTransformers.casing(() -> RadiationFissionSpriteShifts.STEEL_CASING))
+            .transform(BuilderTransformers.casing(() -> CRFSpriteShifts.STEEL_CASING))
             .register();
 
     public static final BlockEntry<Block> POWERED_SPEED_CONTROLLER = REGISTRATE.block("powered_speed_controller", Block::new)
@@ -69,7 +69,7 @@ public class Blocks {
     }
 
     private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block) {
-        Items.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+        RNFItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
 
     public static void register(IEventBus eventBus) {
