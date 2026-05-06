@@ -2,13 +2,7 @@ package com.eevneon.radiationfission.content;
 
 import com.eevneon.radiationfission.RadiationFission;
 import com.simibubi.create.foundation.data.CreateRegistrate;
-import com.tterrag.registrate.Registrate;
-import com.tterrag.registrate.util.entry.BlockEntry;
-import com.tterrag.registrate.util.entry.ItemEntry;
-import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;

@@ -1,7 +1,8 @@
 package com.eevneon.radiationfission.content;
 
 import com.eevneon.radiationfission.RadiationFission;
-import com.eevneon.radiationfission.foundation.AllRadiationFissionSpriteShifts;
+import com.eevneon.radiationfission.content.contraptions.centrifuge.CentrifugeBearingBlock;
+import com.eevneon.radiationfission.foundation.RadiationFissionSpriteShifts;
 import com.simibubi.create.content.decoration.encasing.CasingBlock;
 import com.simibubi.create.foundation.data.*;
 import com.simibubi.create.foundation.data.recipe.CommonMetal;
@@ -16,6 +17,7 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
+import static com.simibubi.create.foundation.data.TagGen.axeOrPickaxe;
 
 import java.util.function.Supplier;
 
@@ -41,16 +43,24 @@ public class Blocks {
             .register();
 
     public static final BlockEntry<CasingBlock> STEEL_CASING = REGISTRATE.block("steel_casing", CasingBlock::new)
-            .transform(BuilderTransformers.casing(() -> AllRadiationFissionSpriteShifts.STEEL_CASING))
+            .properties(p -> p.mapColor(MapColor.WARPED_NYLIUM))
+            .transform(BuilderTransformers.casing(() -> RadiationFissionSpriteShifts.STEEL_CASING))
             .register();
 
     public static final BlockEntry<Block> POWERED_SPEED_CONTROLLER = REGISTRATE.block("powered_speed_controller", Block::new)
             .initialProperties(SharedProperties::softMetal)
             .properties(p -> p.mapColor(MapColor.COLOR_GRAY))
-            .transform(TagGen.axeOrPickaxe())
+            .transform(axeOrPickaxe())
             .item()
             .transform(customItemModel())
             .register();
+
+    public static final BlockEntry<CentrifugeBearingBlock> CENTRIFUGE_BEARING =
+            REGISTRATE.block("centrifuge_bearing", CentrifugeBearingBlock::new)
+                    .transform(axeOrPickaxe())
+                    .properties(p -> p.mapColor(MapColor.PODZOL))
+                    .transform(BuilderTransformers.bearing("windmill", "gearbox"))
+                    .register();
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
