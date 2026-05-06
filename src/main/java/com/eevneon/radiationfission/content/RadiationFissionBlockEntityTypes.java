@@ -1,6 +1,7 @@
 package com.eevneon.radiationfission.content;
 
 import com.eevneon.radiationfission.RadiationFission;
+import com.eevneon.radiationfission.content.contraptions.centrifuge.CentrifugeBearingBlock;
 import com.eevneon.radiationfission.content.contraptions.centrifuge.CentrifugeBearingBlockEntity;
 import com.simibubi.create.content.contraptions.bearing.BearingRenderer;
 import com.simibubi.create.content.contraptions.bearing.BearingVisual;

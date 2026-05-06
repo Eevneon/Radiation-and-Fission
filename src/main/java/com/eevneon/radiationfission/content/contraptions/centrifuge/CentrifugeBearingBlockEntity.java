@@ -1,4 +1,4 @@
-Fpackage com.eevneon.radiationfission.content.contraptions.centrifuge;
+package com.eevneon.radiationfission.content.contraptions.centrifuge;
 
 import com.simibubi.create.content.contraptions.bearing.MechanicalBearingBlockEntity;
 import com.simibubi.create.content.contraptions.bearing.WindmillBearingBlockEntity;
