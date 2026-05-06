@@ -42,6 +42,20 @@ public class RNFBlocks {
             .lang("Block of Steel")
             .register();
 
+    public static final BlockEntry<Block> URANIUM_BLOCK = REGISTRATE.block("uranium_block", Block::new)
+            .initialProperties(() -> net.minecraft.world.level.block.Blocks.IRON_BLOCK)
+            .properties(p -> p.mapColor(MapColor.TERRACOTTA_YELLOW)
+                    .requiresCorrectToolForDrops())
+            .transform(TagGen.pickaxeOnly())
+            .tag(BlockTags.NEEDS_IRON_TOOL)
+            .tag(Tags.Blocks.STORAGE_BLOCKS)
+            .tag(BlockTags.BEACON_BASE_BLOCKS)
+            .transform(TagGen.tagBlockAndItem(CommonMetal.BRASS.storageBlocks))
+            .tag(Tags.Items.STORAGE_BLOCKS)
+            .build()
+            .lang("Block of Uranium")
+            .register();
+
     public static final BlockEntry<CasingBlock> STEEL_CASING = REGISTRATE.block("steel_casing", CasingBlock::new)
             .properties(p -> p.mapColor(MapColor.WARPED_NYLIUM))
             .transform(BuilderTransformers.casing(() -> CRFSpriteShifts.STEEL_CASING))

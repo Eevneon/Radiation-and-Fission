@@ -3,6 +3,7 @@ package com.eevneon.radiationfission.content.contraptions.centrifuge;
 import com.simibubi.create.content.contraptions.bearing.MechanicalBearingBlockEntity;
 import com.simibubi.create.content.contraptions.bearing.WindmillBearingBlockEntity;
 // import com.simibubi.create.foundation.advancement.AllAdvancements;
+import com.simibubi.create.foundation.advancement.AllAdvancements;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.blockEntity.behaviour.scrollValue.INamedIconOptions;
 import com.simibubi.create.foundation.blockEntity.behaviour.scrollValue.ScrollOptionBehaviour;
@@ -84,14 +85,10 @@ public class CentrifugeBearingBlockEntity extends MechanicalBearingBlockEntity {
     @Override
     public void addBehaviours(List<BlockEntityBehaviour> behaviours) {
         super.addBehaviours(behaviours);
-        behaviours.remove(movementMode);
-        movementDirection = new ScrollOptionBehaviour
-                //<>
-                (WindmillBearingBlockEntity.RotationDirection.class,
-                CreateLang.translateDirect("contraptions.centrifuge.rotation_direction"), this, getMovementModeSlot());
-        movementDirection.withCallback($ -> onDirectionChanged());
-        behaviours.add(movementDirection);
-        // registerAwardables(behaviours, AllAdvancements.WINDMILL, AllAdvancements.WINDMILL_MAXED);
+        movementMode = new ScrollOptionBehaviour<>(RotationMode.class,
+                CreateLang.translateDirect("contraptions.movement_mode"), this, getMovementModeSlot());
+        behaviours.add(movementMode);
+        registerAwardables(behaviours, AllAdvancements.CONTRAPTION_ACTORS);
     }
 
     private void onDirectionChanged() {
