@@ -1,6 +1,7 @@
 package com.eevneon.radiationfission;
 
 import com.eevneon.radiationfission.content.*;
+import com.eevneon.radiationfission.infrastructure.config.RNFConfigs;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.foundation.item.ItemDescription;
 import com.simibubi.create.foundation.item.KineticStats;
@@ -9,6 +10,7 @@ import net.createmod.catnip.lang.FontHelper;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
+import net.neoforged.fml.ModLoadingContext;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -39,7 +41,7 @@ public class RadiationFission {
             );
 
     public RadiationFission(IEventBus modEventBus, ModContainer modContainer) {
-
+        ModLoadingContext context = ModLoadingContext.get();
         REGISTRATE.registerEventListeners(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
@@ -52,9 +54,9 @@ public class RadiationFission {
         RNFItems.register(modEventBus);
         RNFBlockEntityTypes.register();
 
-        modEventBus.addListener(this::addCreative);
+        RNFConfigs.register(context, modContainer);
 
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        modEventBus.addListener(this::addCreative);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {

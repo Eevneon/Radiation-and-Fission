@@ -4,6 +4,7 @@ import com.eevneon.radiationfission.RadiationFission;
 import com.eevneon.radiationfission.content.contraptions.centrifuge.CentrifugeBearingBlock;
 import com.eevneon.radiationfission.content.rtg.RTGeneratorBlock;
 import com.eevneon.radiationfission.foundation.CRFSpriteShifts;
+import com.eevneon.radiationfission.infrastructure.config.RNFStress;
 import com.simibubi.create.content.decoration.encasing.CasingBlock;
 import com.simibubi.create.foundation.data.*;
 import com.simibubi.create.foundation.data.recipe.CommonMetal;
@@ -83,6 +84,7 @@ public class RNFBlocks {
                     .initialProperties(SharedProperties::softMetal)
                     .transform(pickaxeOnly())
                     .properties(p -> p.mapColor(MapColor.COLOR_GRAY).noOcclusion())
+                    .transform(RNFStress.setCapacity(256.0F))
                     .lang("RTG")
                     .item()
                     .build()
