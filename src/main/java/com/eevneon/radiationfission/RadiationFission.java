@@ -53,6 +53,7 @@ public class RadiationFission {
         RNFBlocks.register(modEventBus);
         RNFItems.register(modEventBus);
         RNFBlockEntityTypes.register();
+        RNFDataComponents.register(modEventBus);
 
         RNFConfigs.register(context, modContainer);
 

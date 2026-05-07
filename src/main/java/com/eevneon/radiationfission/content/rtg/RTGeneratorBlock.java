@@ -5,11 +5,20 @@ import com.simibubi.create.content.kinetics.base.DirectionalKineticBlock;
 import com.simibubi.create.foundation.block.IBE;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathComputationType;
+import net.minecraft.world.phys.BlockHitResult;
 
 public class RTGeneratorBlock extends DirectionalKineticBlock implements IBE<RTGeneratorBlockEntity> {
     public RTGeneratorBlock(Properties properties) {
@@ -36,6 +45,37 @@ public class RTGeneratorBlock extends DirectionalKineticBlock implements IBE<RTG
                     .isShiftKeyDown() ? nearestLookingDirection.getOpposite() : nearestLookingDirection);
         }
         return defaultBlockState().setValue(FACING, preferred);
+    }
+
+    @Override
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+        if (state.getValue(FACING) == hitResult.getDirection()) return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION;
+        Holder<Item> holder = stack.getItemHolder();
+        if (holder.getData(ItemRTGFuelPropertiesData.TYPE) != null) {
+            return this.onBlockEntityUseItemOn(level, pos, te -> {
+                if (!te.fuel.isEmpty()) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+                if (!level.isClientSide) {
+                    te.fuel = stack.split(1);
+                    te.sendData();
+                }
+                return ItemInteractionResult.sidedSuccess(level.isClientSide());
+            });
+        } else {
+            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        }
+    }
+
+    @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+        return this.onBlockEntityUse(level, pos, te -> {
+            if (te.fuel.isEmpty()) return InteractionResult.PASS;
+            if (!level.isClientSide) {
+                player.addItem(te.fuel.copy());
+                te.fuel = ItemStack.EMPTY;
+                te.sendData();
+            }
+            return InteractionResult.SUCCESS;
+        });
     }
 
     @Override

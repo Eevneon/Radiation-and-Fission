@@ -1,0 +1,13 @@
+{
+  "values": {
+    "minecraft:apple": {
+      "heat": 1.0,
+      "duration": 1.0
+    },
+    "minecraft:brick": {
+      "heat": 2.0,
+      "duration": 0.5,
+      "result": "minecraft:nether_brick"
+    }
+  }
+}
