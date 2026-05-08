@@ -18,7 +18,7 @@ public class RNFCreativeModeTabs {
     public static final Supplier<CreativeModeTab> RADIATION_N_FISSION = CREATIVE_MODE_TAB.register("radiation_n_fission",
             () -> CreativeModeTab.builder()
                 .icon(() -> new ItemStack(RNFBlocks.URANIUM_BLOCK.get()))
-                .title(Component.translatable("creativetab.radiationfission.radiation_n_fission "))
+                .title(Component.translatable("creativetab.radiationfission.radiation_n_fission"))
                 .displayItems((itemDisplayParameters, output) -> {
                     output.accept(RNFItems.URANIUM_INGOT);
                     output.accept(RNFItems.STEEL_INGOT);
@@ -26,6 +26,7 @@ public class RNFCreativeModeTabs {
                     output.accept(RNFBlocks.STEEL_CASING);
                     output.accept(RNFBlocks.STEEL_BLOCK);
                     output.accept(RNFBlocks.URANIUM_BLOCK);
+                    output.accept(RNFBlocks.CENTRIFUGE_BEARING);
                 })
                 .build());
 

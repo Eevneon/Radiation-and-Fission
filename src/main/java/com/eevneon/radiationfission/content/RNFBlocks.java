@@ -1,8 +1,12 @@
 package com.eevneon.radiationfission.content;
 
 import com.eevneon.radiationfission.RadiationFission;
+import com.eevneon.radiationfission.content.contraptions.RNFStress;
 import com.eevneon.radiationfission.content.contraptions.centrifuge.CentrifugeBearingBlock;
 import com.eevneon.radiationfission.foundation.CRFSpriteShifts;
+import com.simibubi.create.AllTags;
+import com.simibubi.create.api.behaviour.movement.MovementBehaviour;
+import com.simibubi.create.content.contraptions.bearing.StabilizedBearingMovementBehaviour;
 import com.simibubi.create.content.decoration.encasing.CasingBlock;
 import com.simibubi.create.foundation.data.*;
 import com.simibubi.create.foundation.data.recipe.CommonMetal;
@@ -73,7 +77,10 @@ public class RNFBlocks {
             REGISTRATE.block("centrifuge_bearing", CentrifugeBearingBlock::new)
                     .transform(axeOrPickaxe())
                     .properties(p -> p.mapColor(MapColor.PODZOL))
-                    .transform(BuilderTransformers.bearing("windmill", "gearbox"))
+                    .transform(BuilderTransformers.bearing("mechanical", "gearbox"))
+                    .transform(RNFStress.setImpact(8.0))
+                    .tag(AllTags.AllBlockTags.SAFE_NBT.tag)
+                    .onRegister(MovementBehaviour.movementBehaviour(new StabilizedBearingMovementBehaviour()))
                     .register();
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
