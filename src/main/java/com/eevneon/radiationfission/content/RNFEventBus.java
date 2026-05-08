@@ -22,6 +22,6 @@ public class RNFEventBus {
         ItemStack stack = event.getItemStack();
         Holder<Item> holder = stack.getItemHolder();
 
-        ItemRTGFuelPropertiesData.handleTooltips(holder, event);
+        ItemRTGFuelPropertiesData.handleTooltips(stack, holder, event);
     }
 }

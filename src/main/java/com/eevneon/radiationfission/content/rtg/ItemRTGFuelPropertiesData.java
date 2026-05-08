@@ -1,6 +1,7 @@
 package com.eevneon.radiationfission.content.rtg;
 
 import com.eevneon.radiationfission.RadiationFission;
+import com.eevneon.radiationfission.content.RNFDataComponents;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -49,7 +50,7 @@ public record ItemRTGFuelPropertiesData(float heat, float duration, Item result)
     private static final Component TOOLTIP_2 = Component.translatable("tooltip.radiationfission.rtg_fuel_properties.duration_single")
             .withStyle(ChatFormatting.GRAY);
 
-    public static void handleTooltips(Holder<Item> holder, ItemTooltipEvent event) {
+    public static void handleTooltips(ItemStack stack, Holder<Item> holder, ItemTooltipEvent event) {
         ItemRTGFuelPropertiesData data = holder.getData(TYPE);
         if (data != null) {
             List<Component> tooltip = event.getToolTip();
@@ -72,6 +73,14 @@ public record ItemRTGFuelPropertiesData(float heat, float duration, Item result)
                 tooltip.add(Component.literal("  ").append(
                         Component.translatable("tooltip.radiationfission.rtg_fuel_properties.result",
                                         data.result().getName(ItemStack.EMPTY).getString())
+                                .withStyle(ChatFormatting.GRAY)
+                ));
+            }
+            Integer depletionTicks = stack.get(RNFDataComponents.DEPLETION_TICKS);
+            if (depletionTicks != null) {
+                float pct = depletionTicks * 100.0F / (data.duration() * 20 * 60);
+                tooltip.add(Component.literal("  ").append(
+                        Component.translatable("radiationfission.goggles.rt_generator.decay", FORMAT.format(pct))
                                 .withStyle(ChatFormatting.GRAY)
                 ));
             }
