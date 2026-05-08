@@ -79,7 +79,7 @@ public class RNFBlocks {
                     .transform(axeOrPickaxe())
                     .properties(p -> p.mapColor(MapColor.PODZOL))
                     .transform(BuilderTransformers.bearing("mechanical", "gearbox"))
-                    .onRegister((block) -> BlockStressValues.IMPACTS.register(block, () -> 128.0))
+                    .onRegister((block) -> BlockStressValues.IMPACTS.register(block, () -> 64.0))
                     .tag(AllTags.AllBlockTags.SAFE_NBT.tag)
                     .onRegister(MovementBehaviour.movementBehaviour(new StabilizedBearingMovementBehaviour()))
                     .register();
