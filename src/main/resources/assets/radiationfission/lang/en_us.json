@@ -13,7 +13,7 @@
 
   "radiationfission.goggles.rt_generator.header": "Radioisotope Thermokinetic Generator:",
   "radiationfission.goggles.rt_generator.fuel": "Fuel Pellet: %s",
-  "radiationfission.goggles.rt_generator.decay": "Decay: %s%%",
+  "radiationfission.goggles.rt_generator.decay": "Depletion: %s%%",
 
   "tooltip.radiationfission.rtg_fuel_properties.header": "RTG Fuel Pellet:",
   "tooltip.radiationfission.rtg_fuel_properties.heat": "Heat multiplier: %sx",

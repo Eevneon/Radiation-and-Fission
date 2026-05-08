@@ -56,6 +56,7 @@ public class RTGeneratorBlock extends DirectionalKineticBlock implements IBE<RTG
                 if (!te.fuel.isEmpty()) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
                 if (!level.isClientSide) {
                     te.fuel = stack.split(1);
+                    te.updateGeneratedRotation();
                     te.sendData();
                 }
                 return ItemInteractionResult.sidedSuccess(level.isClientSide());
@@ -72,6 +73,7 @@ public class RTGeneratorBlock extends DirectionalKineticBlock implements IBE<RTG
             if (!level.isClientSide) {
                 player.addItem(te.fuel.copy());
                 te.fuel = ItemStack.EMPTY;
+                te.updateGeneratedRotation();
                 te.sendData();
             }
             return InteractionResult.SUCCESS;
