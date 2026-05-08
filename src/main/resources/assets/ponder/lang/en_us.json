@@ -1,0 +1,8 @@
+{
+  "radiationfission.ponder.rt_generator.header": "Generating rotational force using the RTG",
+  "radiationfission.ponder.rt_generator.text_1": "At times, a compact source of SU is required",
+  "radiationfission.ponder.rt_generator.text_2": "The RTG fulfills this need",
+  "radiationfission.ponder.rt_generator.text_3": "Fuel pellets can be inserted by hand",
+  "radiationfission.ponder.rt_generator.text_4": "The RTG can be placed in any orientation",
+  "radiationfission.ponder.rt_generator.text_5": "The rotation direction can be configured at the top"
+}
