@@ -6,6 +6,7 @@ import com.eevneon.radiationfission.content.contraptions.centrifuge.CentrifugeBe
 import com.eevneon.radiationfission.foundation.CRFSpriteShifts;
 import com.simibubi.create.AllTags;
 import com.simibubi.create.api.behaviour.movement.MovementBehaviour;
+import com.simibubi.create.api.stress.BlockStressValues;
 import com.simibubi.create.content.contraptions.bearing.StabilizedBearingMovementBehaviour;
 import com.simibubi.create.content.decoration.encasing.CasingBlock;
 import com.simibubi.create.foundation.data.*;
@@ -78,7 +79,7 @@ public class RNFBlocks {
                     .transform(axeOrPickaxe())
                     .properties(p -> p.mapColor(MapColor.PODZOL))
                     .transform(BuilderTransformers.bearing("mechanical", "gearbox"))
-                    .transform(RNFStress.setImpact(8.0))
+                    .onRegister((block) -> BlockStressValues.IMPACTS.register(block, () -> 128.0))
                     .tag(AllTags.AllBlockTags.SAFE_NBT.tag)
                     .onRegister(MovementBehaviour.movementBehaviour(new StabilizedBearingMovementBehaviour()))
                     .register();
