@@ -2,7 +2,9 @@ package com.eevneon.radiationfission.content;
 
 import com.eevneon.radiationfission.RadiationFission;
 import com.eevneon.radiationfission.content.contraptions.centrifuge.CentrifugeBearingBlock;
+import com.eevneon.radiationfission.content.rtg.RTGeneratorBlock;
 import com.eevneon.radiationfission.foundation.CRFSpriteShifts;
+import com.eevneon.radiationfission.infrastructure.config.RNFStress;
 import com.simibubi.create.content.decoration.encasing.CasingBlock;
 import com.simibubi.create.foundation.data.*;
 import com.simibubi.create.foundation.data.recipe.CommonMetal;
@@ -18,6 +20,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
 import static com.simibubi.create.foundation.data.TagGen.axeOrPickaxe;
+import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
 
 import java.util.function.Supplier;
 
@@ -74,6 +77,17 @@ public class RNFBlocks {
                     .transform(axeOrPickaxe())
                     .properties(p -> p.mapColor(MapColor.PODZOL))
                     .transform(BuilderTransformers.bearing("windmill", "gearbox"))
+                    .register();
+
+    public static final BlockEntry<RTGeneratorBlock> RT_GENERATOR =
+            REGISTRATE.block("rt_generator", RTGeneratorBlock::new)
+                    .initialProperties(SharedProperties::softMetal)
+                    .transform(pickaxeOnly())
+                    .properties(p -> p.mapColor(MapColor.COLOR_GRAY).noOcclusion())
+                    .transform(RNFStress.setCapacity(256.0F))
+                    .lang("RTG")
+                    .item()
+                    .build()
                     .register();
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

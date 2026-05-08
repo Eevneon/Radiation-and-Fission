@@ -5,6 +5,13 @@
   "block.radiationfission.powered_speed_controller": "Compwicated Rotate Thingey",
   "block.radiationfission.steel_block": "Bwock of Big Eurgh",
   "block.radiationfission.steel_casing": "Less Eurgh (cool)",
+  "block.radiationfission.rt_generator": "Idk how dis work",
 
-  "creativetab.radiationfission.radiation_n_fission": "Scawy Glowy Items wid Lot of Unecesawy Wargon"
+  "creativetab.radiationfission.radiation_n_fission": "Scawy Glowy Items wid Lot of Unecesawy Wargon",
+
+  "tooltip.radiationfission.rtg_fuel_properties.header": "warm pebble deeta",
+  "tooltip.radiationfission.rtg_fuel_properties.heat": "nice touch score: %s",
+  "tooltip.radiationfission.rtg_fuel_properties.duration": "time until Evaporation: %s mins",
+  "tooltip.radiationfission.rtg_fuel_properties.duration_single": "time until Evaporation: 1 mins",
+  "tooltip.radiationfission.rtg_fuel_properties.result": "Magic Transformation into {}"
 }

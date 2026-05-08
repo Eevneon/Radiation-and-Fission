@@ -7,7 +7,17 @@
   "block.radiationfission.steel_casing": "Steel Casing",
   "block.radiationfission.centrifuge_bearing": "Centrifuge Bearing",
   "block.radiationfission.uranium_block": "Block of Uranium",
+  "block.radiationfission.rt_generator": "Radioisotope Thermokinetic Generator",
 
-  "creativetab.radiationfission.radiation_n_fission": "Radiation & Fission"
+  "creativetab.radiationfission.radiation_n_fission": "Radiation & Fission",
 
+  "radiationfission.goggles.rt_generator.header": "Radioisotope Thermokinetic Generator:",
+  "radiationfission.goggles.rt_generator.fuel": "Fuel Pellet: %s",
+  "radiationfission.goggles.rt_generator.decay": "Depletion: %s%%",
+
+  "tooltip.radiationfission.rtg_fuel_properties.header": "RTG Fuel Pellet:",
+  "tooltip.radiationfission.rtg_fuel_properties.heat": "Heat multiplier: %sx",
+  "tooltip.radiationfission.rtg_fuel_properties.duration": "Decay time: %s minutes",
+  "tooltip.radiationfission.rtg_fuel_properties.duration_single": "Decay time: 1 minute",
+  "tooltip.radiationfission.rtg_fuel_properties.result": "Decays into %s"
 }
