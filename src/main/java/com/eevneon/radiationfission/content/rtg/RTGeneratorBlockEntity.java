@@ -126,7 +126,7 @@ public class RTGeneratorBlockEntity extends GeneratingKineticBlockEntity impleme
             this.lastGeneratedSpeed = 0.0F;
             return;
         }
-        if (this.lastGeneratedSpeed == 0.0F) {
+        if (this.lastGeneratedSpeed != this.getGeneratedSpeed()) {
             this.updateGeneratedRotation();
             this.sendData();
         }

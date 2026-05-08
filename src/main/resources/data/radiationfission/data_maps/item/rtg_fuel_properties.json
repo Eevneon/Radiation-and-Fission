@@ -8,6 +8,11 @@
       "heat": 2.0,
       "duration": 0.5,
       "result": "minecraft:nether_brick"
+    },
+    "minecraft:nether_brick": {
+      "heat": 4.0,
+      "duration": 0.25,
+      "result": "minecraft:bone"
     }
   }
 }
