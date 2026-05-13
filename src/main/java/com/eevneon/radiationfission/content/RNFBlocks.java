@@ -1,9 +1,9 @@
 package com.eevneon.radiationfission.content;
 
 import com.eevneon.radiationfission.RadiationFission;
-import com.eevneon.radiationfission.content.contraptions.RNFStress;
 import com.eevneon.radiationfission.content.contraptions.centrifuge.CentrifugeBearingBlock;
-import com.eevneon.radiationfission.foundation.CRFSpriteShifts;
+import com.eevneon.radiationfission.foundation.RNFBuilderTransformers;
+import com.eevneon.radiationfission.foundation.RNFSpriteShifts;
 import com.simibubi.create.AllTags;
 import com.simibubi.create.api.behaviour.movement.MovementBehaviour;
 import com.simibubi.create.api.stress.BlockStressValues;
@@ -63,7 +63,7 @@ public class RNFBlocks {
 
     public static final BlockEntry<CasingBlock> STEEL_CASING = REGISTRATE.block("steel_casing", CasingBlock::new)
             .properties(p -> p.mapColor(MapColor.WARPED_NYLIUM))
-            .transform(BuilderTransformers.casing(() -> CRFSpriteShifts.STEEL_CASING))
+            .transform(BuilderTransformers.casing(() -> RNFSpriteShifts.STEEL_CASING))
             .register();
 
     public static final BlockEntry<Block> POWERED_SPEED_CONTROLLER = REGISTRATE.block("powered_speed_controller", Block::new)
@@ -78,7 +78,7 @@ public class RNFBlocks {
             REGISTRATE.block("centrifuge_bearing", CentrifugeBearingBlock::new)
                     .transform(axeOrPickaxe())
                     .properties(p -> p.mapColor(MapColor.PODZOL))
-                    .transform(BuilderTransformers.bearing("mechanical", "gearbox"))
+                    .transform(RNFBuilderTransformers.bearing("centrifuge", "gearbox"))
                     .onRegister((block) -> BlockStressValues.IMPACTS.register(block, () -> 64.0))
                     .tag(AllTags.AllBlockTags.SAFE_NBT.tag)
                     .onRegister(MovementBehaviour.movementBehaviour(new StabilizedBearingMovementBehaviour()))

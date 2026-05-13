@@ -8,7 +8,7 @@ import com.simibubi.create.foundation.block.connected.CTType;
 import net.createmod.catnip.render.SpriteShiftEntry;
 import net.createmod.catnip.render.SpriteShifter;
 
-public class CRFSpriteShifts {
+public class RNFSpriteShifts {
     public static final CTSpriteShiftEntry STEEL_CASING = omni("steel_casing");
 
     public static CTSpriteShiftEntry omni(String name) {
