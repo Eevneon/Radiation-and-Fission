@@ -11,6 +11,7 @@ import com.simibubi.create.content.contraptions.bearing.IBearingBlockEntity;
 import com.simibubi.create.content.contraptions.bearing.MechanicalBearingBlockEntity;
 // import com.simibubi.create.foundation.advancement.AllAdvancements;
 import com.simibubi.create.content.kinetics.base.GeneratingKineticBlockEntity;
+import com.simibubi.create.content.kinetics.gauge.GaugeVisual;
 import com.simibubi.create.content.kinetics.transmission.sequencer.SequencerInstructions;
 import com.simibubi.create.foundation.advancement.AllAdvancements;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
@@ -43,6 +44,8 @@ public class CentrifugeBearingBlockEntity extends GeneratingKineticBlockEntity i
         protected double sequencedAngleLimit;
 
         private float prevAngle;
+        private float centrifugalAcceleration;
+
 
 	public CentrifugeBearingBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
             super(type, pos, state);

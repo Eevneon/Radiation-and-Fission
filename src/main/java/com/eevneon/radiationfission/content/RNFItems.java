@@ -3,12 +3,10 @@ package com.eevneon.radiationfission.content;
 import static com.simibubi.create.AllTags.AllItemTags.CREATE_INGOTS;
 import com.eevneon.radiationfission.RadiationFission;
 import com.simibubi.create.foundation.data.CreateRegistrate;
-import com.simibubi.create.foundation.data.recipe.CommonMetal;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class RNFItems {
