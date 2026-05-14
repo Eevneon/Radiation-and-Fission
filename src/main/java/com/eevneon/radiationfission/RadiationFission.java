@@ -1,6 +1,7 @@
 package com.eevneon.radiationfission;
 
 import com.eevneon.radiationfission.content.*;
+import com.eevneon.radiationfission.foundation.RNFData;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.foundation.item.ItemDescription;
 import com.simibubi.create.foundation.item.KineticStats;
@@ -9,6 +10,7 @@ import net.createmod.catnip.lang.FontHelper;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
+import net.neoforged.bus.api.EventPriority;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -47,12 +49,14 @@ public class RadiationFission {
         NeoForge.EVENT_BUS.register(this);
 
         RNFCreativeModeTabs.register(modEventBus);
-
+        RNFData.register(modEventBus);
         RNFBlocks.register(modEventBus);
         RNFItems.register(modEventBus);
         RNFBlockEntityTypes.register();
 
         modEventBus.addListener(this::addCreative);
+        modEventBus.addListener(EventPriority.HIGHEST, RNFData::gatherRegistrateData);
+        modEventBus.addListener(EventPriority.LOWEST, RNFData::gatherData);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }

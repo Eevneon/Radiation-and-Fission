@@ -64,6 +64,7 @@ public class RNFBlocks {
     public static final BlockEntry<CasingBlock> STEEL_CASING = REGISTRATE.block("steel_casing", CasingBlock::new)
             .properties(p -> p.mapColor(MapColor.WARPED_NYLIUM))
             .transform(BuilderTransformers.casing(() -> RNFSpriteShifts.STEEL_CASING))
+            .lang("Steel Casing")
             .register();
 
     public static final BlockEntry<Block> POWERED_SPEED_CONTROLLER = REGISTRATE.block("powered_speed_controller", Block::new)
@@ -72,6 +73,7 @@ public class RNFBlocks {
             .transform(axeOrPickaxe())
             .item()
             .transform(customItemModel())
+            .lang("Powered Speed Controller")
             .register();
 
     public static final BlockEntry<CentrifugeBearingBlock> CENTRIFUGE_BEARING =
@@ -82,6 +84,7 @@ public class RNFBlocks {
                     .onRegister((block) -> BlockStressValues.IMPACTS.register(block, () -> 64.0))
                     .tag(AllTags.AllBlockTags.SAFE_NBT.tag)
                     .onRegister(MovementBehaviour.movementBehaviour(new StabilizedBearingMovementBehaviour()))
+                    .lang("Centrifuge Bearing")
                     .register();
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
