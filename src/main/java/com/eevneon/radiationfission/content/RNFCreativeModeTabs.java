@@ -22,7 +22,7 @@ public class RNFCreativeModeTabs {
                 .displayItems((itemDisplayParameters, output) -> {
                     output.accept(RNFItems.URANIUM_INGOT);
                     output.accept(RNFItems.STEEL_INGOT);
-                    output.accept(RNFBlocks.POWERED_SPEED_CONTROLLER);
+                    //output.accept(RNFBlocks.POWERED_SPEED_CONTROLLER);
                     output.accept(RNFBlocks.STEEL_CASING);
                     output.accept(RNFBlocks.STEEL_BLOCK);
                     output.accept(RNFBlocks.URANIUM_BLOCK);
