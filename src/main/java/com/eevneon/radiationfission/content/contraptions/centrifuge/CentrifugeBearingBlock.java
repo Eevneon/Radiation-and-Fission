@@ -1,6 +1,8 @@
 package com.eevneon.radiationfission.content.contraptions.centrifuge;
 
 import com.eevneon.radiationfission.content.RNFBlockEntityTypes;
+import com.eevneon.radiationfission.content.RNFFluids;
+import com.eevneon.radiationfission.content.RNFItems;
 import com.simibubi.create.content.contraptions.bearing.BearingBlock;
 import com.simibubi.create.foundation.block.IBE;
 import net.minecraft.core.BlockPos;
@@ -36,6 +38,9 @@ public class CentrifugeBearingBlock extends BearingBlock implements IBE<Centrifu
                 be.assembleNextTick = true;
             });
             return ItemInteractionResult.SUCCESS;
+        }
+        if (stack.is(RNFFluids.GOOPANIUM.getBucket())) {
+
         }
         return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }

@@ -4,19 +4,13 @@ import com.simibubi.create.AllSoundEvents;
 import com.simibubi.create.content.contraptions.AbstractContraptionEntity;
 import com.simibubi.create.content.contraptions.AssemblyException;
 import com.simibubi.create.content.contraptions.ControlledContraptionEntity;
-import com.simibubi.create.content.contraptions.IDisplayAssemblyExceptions;
 import com.simibubi.create.content.contraptions.bearing.BearingBlock;
 import com.simibubi.create.content.contraptions.bearing.BearingContraption;
-import com.simibubi.create.content.contraptions.bearing.IBearingBlockEntity;
 import com.simibubi.create.content.contraptions.bearing.MechanicalBearingBlockEntity;
-// import com.simibubi.create.foundation.advancement.AllAdvancements;
-import com.simibubi.create.content.kinetics.base.GeneratingKineticBlockEntity;
-import com.simibubi.create.content.kinetics.gauge.GaugeVisual;
 import com.simibubi.create.content.kinetics.transmission.sequencer.SequencerInstructions;
 import com.simibubi.create.foundation.advancement.AllAdvancements;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.blockEntity.behaviour.scrollValue.ScrollOptionBehaviour;
-import com.simibubi.create.foundation.item.TooltipHelper;
 import com.simibubi.create.foundation.utility.CreateLang;
 import com.simibubi.create.foundation.utility.ServerSpeedProvider;
 import net.createmod.catnip.math.AngleHelper;
@@ -30,9 +24,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 import java.awt.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class CentrifugeBearingBlockEntity extends GeneratingKineticBlockEntity implements IBearingBlockEntity, IDisplayAssemblyExceptions {
+public class CentrifugeBearingBlockEntity extends MechanicalBearingBlockEntity{
 
         protected ScrollOptionBehaviour<RotationMode> movementMode;
         protected ControlledContraptionEntity movedContraption;
@@ -44,7 +40,7 @@ public class CentrifugeBearingBlockEntity extends GeneratingKineticBlockEntity i
         protected double sequencedAngleLimit;
 
         private float prevAngle;
-        private float centrifugalAcceleration;
+        private Map<Integer,String> centrifugeContents = new HashMap<Integer, String>();
 
 
 	public CentrifugeBearingBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {

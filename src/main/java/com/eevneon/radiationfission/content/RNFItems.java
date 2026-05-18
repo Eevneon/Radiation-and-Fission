@@ -5,6 +5,7 @@ import com.eevneon.radiationfission.RadiationFission;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -16,6 +17,8 @@ public class RNFItems {
 
     public static final ItemEntry<Item> URANIUM_INGOT = taggedIngredient("uranium_ingot", CREATE_INGOTS.tag),
             STEEL_INGOT = taggedIngredient("steel_ingot", CREATE_INGOTS.tag);
+
+    public static final ItemEntry<BucketItem> GOOPANIUM_BUCKET = taggedIngredient("goopanium_bucket");
 
     @SafeVarargs
     private static ItemEntry<Item> taggedIngredient(String name, TagKey<Item>... tags) {
