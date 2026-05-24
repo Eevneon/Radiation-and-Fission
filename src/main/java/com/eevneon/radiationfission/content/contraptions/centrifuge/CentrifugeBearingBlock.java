@@ -39,9 +39,9 @@ public class CentrifugeBearingBlock extends BearingBlock implements IBE<Centrifu
             });
             return ItemInteractionResult.SUCCESS;
         }
-        if (stack.is(RNFFluids.GOOPANIUM.getBucket())) {
+        //if (stack.is(RNFFluids.GOOPANIUM.getBucket())) {
 
-        }
+        //}
         return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 

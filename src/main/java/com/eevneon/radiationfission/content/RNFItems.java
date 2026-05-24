@@ -1,5 +1,6 @@
 package com.eevneon.radiationfission.content;
 
+import static com.simibubi.create.AllTags.AllItemTags.CHOCOLATE_BUCKETS;
 import static com.simibubi.create.AllTags.AllItemTags.CREATE_INGOTS;
 import com.eevneon.radiationfission.RadiationFission;
 import com.simibubi.create.foundation.data.CreateRegistrate;
@@ -17,8 +18,6 @@ public class RNFItems {
 
     public static final ItemEntry<Item> URANIUM_INGOT = taggedIngredient("uranium_ingot", CREATE_INGOTS.tag),
             STEEL_INGOT = taggedIngredient("steel_ingot", CREATE_INGOTS.tag);
-
-    public static final ItemEntry<BucketItem> GOOPANIUM_BUCKET = taggedIngredient("goopanium_bucket");
 
     @SafeVarargs
     private static ItemEntry<Item> taggedIngredient(String name, TagKey<Item>... tags) {
